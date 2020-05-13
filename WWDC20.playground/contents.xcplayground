@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<playground version="6.0" target-platform="ios" requires-full-environment="false">
+<playground target-platform="ios" requires-full-environment="false" version="6.0">
     <pages>
+        <page name="Wheel"/>
         <page name="Game"/>
     </pages>
 </playground>
