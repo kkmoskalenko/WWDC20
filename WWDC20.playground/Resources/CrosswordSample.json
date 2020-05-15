@@ -1,0 +1,86 @@
+{
+  "rowCount": 10,
+  "colCount": 10,
+  "letters": "AAABEILLV",
+  "words": [
+    {
+      "word": "AVAILABLE",
+      "vertical": true,
+      "rowIndex": 1,
+      "colIndex": 5
+    },
+    {
+      "word": "LABEL",
+      "vertical": true,
+      "rowIndex": 2,
+      "colIndex": 2
+    },
+    {
+      "word": "LIVE",
+      "vertical": false,
+      "rowIndex": 8,
+      "colIndex": 5
+    },
+    {
+      "word": "ALL",
+      "vertical": false,
+      "rowIndex": 6,
+      "colIndex": 5
+    },
+    {
+      "word": "LIABLE",
+      "vertical": false,
+      "rowIndex": 9,
+      "colIndex": 0
+    },
+    {
+      "word": "VIA",
+      "vertical": false,
+      "rowIndex": 1,
+      "colIndex": 3
+    },
+    {
+      "word": "VILLA",
+      "vertical": false,
+      "rowIndex": 2,
+      "colIndex": 5
+    },
+    {
+      "word": "ABLE",
+      "vertical": false,
+      "rowIndex": 2,
+      "colIndex": 0
+    },
+    {
+      "word": "LAB",
+      "vertical": false,
+      "rowIndex": 7,
+      "colIndex": 3
+    },
+    {
+      "word": "ALIVE",
+      "vertical": true,
+      "rowIndex": 2,
+      "colIndex": 0
+    },
+    {
+      "word": "BILL",
+      "vertical": false,
+      "rowIndex": 4,
+      "colIndex": 4
+    },
+    {
+      "word": "AVE",
+      "vertical": true,
+      "rowIndex": 0,
+      "colIndex": 3
+    },
+    {
+      "word": "BALL",
+      "vertical": true,
+      "rowIndex": 0,
+      "colIndex": 8
+    }
+  ],
+  "id": "48eafa343082cfc796e488cd2d0205eb"
+}
