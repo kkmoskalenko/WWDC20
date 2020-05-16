@@ -10,19 +10,11 @@ struct ContentView: View {
     }
     
     var body: some View {
-        ZStack {
-            Wheel(characters, selection: $selection.animation())
-                .background(Circle()
-                    .fill(Color.white))
-                .animation(.none)
+        VStack {
+            WordCapsule(word)
             
-            Text(word)
-                .font(.system(size: 80, weight: .black, design: .rounded))
-                .foregroundColor(.orange)
-                .transition(AnyTransition.scale
-                    .combined(with: .opacity))
-                .id(word)
-                .zIndex(1)
+            Wheel(characters, selection: $selection)
+                .background(Circle().fill(Color.white))
         }.padding()
     }
 }
