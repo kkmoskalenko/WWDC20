@@ -4,6 +4,7 @@ import PlaygroundSupport
 struct LevelView: View {
     @State private var selection = [Int]()
     @State private var filledWords: Set<Level.Word> = []
+    @State private var bonusWords: Set<String> = []
     
     let level: Level
     let letters: [Character]
@@ -15,12 +16,17 @@ struct LevelView: View {
         let binding = Binding(
             get: { self.selection },
             set: { newSelection in
-                if let foundWord = self.level.findWord(selectedWord),
-                    newSelection.isEmpty,
-                    !self.filledWords.contains(foundWord)
-                {
-                    self.filledWords.insert(foundWord)
-                    AudioProvider.playSound(.triplePop())
+                if newSelection.isEmpty {
+                    if let foundWord = self.level.findWord(selectedWord) {
+                        if !self.filledWords.contains(foundWord) {
+                            self.filledWords.insert(foundWord)
+                            AudioProvider.playSound(.triplePop())
+                        }
+                    } else if self.wordExists(selectedWord) {
+                        withAnimation {
+                            self.bonusWords.insert(selectedWord)
+                        }
+                    }
                 }
                 
                 self.selection = newSelection
@@ -42,8 +48,34 @@ struct LevelView: View {
                         .secondarySystemBackground
                     )))
                     .frame(maxWidth: 400, maxHeight: 400)
+                
+                self.makeCounter(self.bonusWords.count)
             }
         }
+    }
+    
+    private func wordExists(_ word: String) -> Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0, length: word.utf16.count)
+        let misspelledRange = checker.rangeOfMisspelledWord(
+            in: word, range: range, startingAt: 0,
+            wrap: false, language: "en")
+        
+        return misspelledRange.location == NSNotFound &&
+            word.count > 2
+    }
+    
+    private func makeCounter(_ count: Int) -> some View {
+        HStack {
+            Text("Bonus words:")
+                .font(.headline)
+            Image(systemName: "\(count).circle.fill")
+                .font(.title)
+        }
+        .foregroundColor(.accentColor)
+        .id("Bonus \(count)")
+        .transition(.scale)
+        .padding()
     }
     
     init(_ level: Level) {
