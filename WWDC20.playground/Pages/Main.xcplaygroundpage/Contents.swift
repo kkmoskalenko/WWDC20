@@ -2,6 +2,8 @@ import SwiftUI
 import PlaygroundSupport
 
 struct LevelView: View {
+    @Binding var levelCompleted: Bool
+    
     @State private var selection = [Int]()
     @State private var filledWords: Set<Level.Word> = []
     @State private var bonusWords: Set<String> = []
@@ -27,6 +29,10 @@ struct LevelView: View {
                             self.bonusWords.insert(selectedWord)
                         }
                     }
+                }
+                
+                if self.filledWords.count == self.level.words.count {
+                    self.levelCompleted = true
                 }
                 
                 self.selection = newSelection
@@ -67,26 +73,44 @@ struct LevelView: View {
         .padding()
     }
     
-    init(_ level: Level) {
+    init(_ level: Level, completion: Binding<Bool>) {
         self.level = level
         self.letters = Array(level.letters)
+        
+        self._levelCompleted = completion
     }
     
-    init(for name: String) {
+    init(for name: String, completion: Binding<Bool>) {
         self.init(Bundle.main.decode(
             Level.self, from: "\(name).json"
-        ))
+        ), completion: completion)
     }
 }
 
 struct ContentView: View {
-    @State private var showingWelcome = true
+    @State private var showingSheet = true
+    @State private var activeSheet: ActiveSheet = .first
+    
+    enum ActiveSheet { case first, second }
     
     var body: some View {
-        LevelView(for: "CrosswordSample")
-            .sheet(isPresented: $showingWelcome) {
-                WelcomeView { self.showingWelcome = false }
+        LevelView(for: "CrosswordSample", completion: $showingSheet)
+            .sheet(isPresented: $showingSheet, content: sheetContent)
+    }
+    
+    func sheetContent() -> AnyView {
+        if self.activeSheet == .first {
+            return AnyView(WelcomeView {
+                self.showingSheet = false
+                self.activeSheet = .second
+            })
+        } else if self.activeSheet == .second {
+            return AnyView(
+                CongratulationsView()
+            )
         }
+        
+        return AnyView(EmptyView())
     }
 }
 
