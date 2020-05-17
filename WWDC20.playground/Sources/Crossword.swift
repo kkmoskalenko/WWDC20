@@ -42,9 +42,10 @@ public struct Crossword: View {
         
         let bgColor: Color = {
             switch cell {
-            case .none: return Color.clear
-            case .empty: return Color.gray.opacity(0.5)
-            case .filled: return Color.blue
+            case .none: return .clear
+            case .empty: return .init(UIColor
+                .secondarySystemBackground)
+            case .filled: return .accentColor
             }
         }()
         
