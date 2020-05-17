@@ -22,7 +22,7 @@ struct LevelView: View {
                             self.filledWords.insert(foundWord)
                             AudioProvider.playSound(.triplePop())
                         }
-                    } else if self.wordExists(selectedWord) {
+                    } else if self.level.bonusWords.contains(selectedWord) {
                         withAnimation {
                             self.bonusWords.insert(selectedWord)
                         }
@@ -52,17 +52,6 @@ struct LevelView: View {
                 self.makeCounter(self.bonusWords.count)
             }
         }
-    }
-    
-    private func wordExists(_ word: String) -> Bool {
-        let checker = UITextChecker()
-        let range = NSRange(location: 0, length: word.utf16.count)
-        let misspelledRange = checker.rangeOfMisspelledWord(
-            in: word, range: range, startingAt: 0,
-            wrap: false, language: "en")
-        
-        return misspelledRange.location == NSNotFound &&
-            word.count > 2
     }
     
     private func makeCounter(_ count: Int) -> some View {

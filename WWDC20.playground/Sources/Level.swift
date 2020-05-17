@@ -5,6 +5,7 @@ public struct Level: Codable, Identifiable {
     public var colCount: Int
     public var letters: String
     public var words: Set<Word>
+    public var bonusWords: Set<String>
     
     public struct Word: Codable, Hashable {
         public var word: String

@@ -46,5 +46,30 @@
       "colIndex": 3
     }
   ],
+  "bonusWords": [
+    "DEL",
+    "DELO",
+    "DOE",
+    "DOL",
+    "DOLE",
+    "DOM",
+    "ELD",
+    "ELM",
+    "EMO",
+    "LOD",
+    "LODE",
+    "LOME",
+    "MED",
+    "MEL",
+    "MELD",
+    "MOE",
+    "MOL",
+    "MOLE",
+    "ODE",
+    "OLD",
+    "OLDE",
+    "OLE",
+    "OLM"
+  ],
   "id": "3a1a069d35aa89b75cae91a500641b1c"
 }
