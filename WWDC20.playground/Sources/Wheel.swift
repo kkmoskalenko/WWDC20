@@ -72,7 +72,7 @@ public struct Wheel: View {
         .background(Joins(
             points: selectedIndices.map { position(at: $0) },
             dragLocation: allSelected ? nil : dragLocation)
-                .stroke(joinsColor, style: joinsStrokeStyle))
+                .stroke(Color.accentColor, style: joinsStrokeStyle))
         .gesture(drag)
         .onPreferenceChange(WheelSizeKey.self) {
             self.size = $0
@@ -148,10 +148,6 @@ public struct Wheel: View {
     
     private var hitRadius: CGFloat {
         0.5 * fontSize
-    }
-    
-    private var joinsColor: some ShapeStyle {
-        Color.blue
     }
     
     private var joinsStrokeStyle: StrokeStyle {

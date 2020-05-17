@@ -15,15 +15,18 @@ struct CharacterView: View {
         .system(size: fontSize, weight: .bold, design: .rounded)
     }
     
-    private var textColor: Color { isSelected ? .white : .black }
+    private var textColor: Color {
+        isSelected ? .white : .secondary
+    }
+    
     private var background: some ShapeStyle {
-        isSelected ? Color.orange : Color.clear
+        isSelected ? Color.accentColor : Color.clear
     }
     
     var body: some View {
         Text(string)
             .font(font)
-            //.baselineOffset(0.05 * fontSize)
+            .baselineOffset(0.05 * fontSize)
             .frame(maxWidth: .infinity)
             .foregroundColor(textColor)
             .background(Circle()
