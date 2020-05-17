@@ -91,8 +91,13 @@ struct LevelView: View {
 }
 
 struct ContentView: View {
+    @State private var showingWelcome = true
+    
     var body: some View {
         LevelView(for: "CrosswordSample")
+            .sheet(isPresented: $showingWelcome) {
+                WelcomeView { self.showingWelcome = false }
+        }
     }
 }
 
