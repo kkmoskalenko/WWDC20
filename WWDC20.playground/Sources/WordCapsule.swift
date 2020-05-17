@@ -35,6 +35,7 @@ public struct WordCapsule: View {
         .background(Color.accentColor)
         .clipShape(Capsule())
         .animation(animation)
+        .minimumScaleFactor(0.5)
     }
     
     public init(_ word: String, font: Font = .system(

@@ -4,5 +4,6 @@
         <page name="Wheel"/>
         <page name="Game"/>
         <page name="Crossword"/>
+        <page name="Main"/>
     </pages>
 </playground>
