@@ -1,86 +1,50 @@
 {
-  "rowCount": 10,
-  "colCount": 10,
-  "letters": "AAABEILLV",
+  "rowCount": 5,
+  "colCount": 7,
+  "letters": "DELMO",
   "words": [
     {
-      "word": "AVAILABLE",
+      "word": "MODEL",
       "vertical": true,
-      "rowIndex": 1,
-      "colIndex": 5
+      "rowIndex": 0,
+      "colIndex": 1
     },
     {
-      "word": "LABEL",
+      "word": "LED",
+      "vertical": true,
+      "rowIndex": 0,
+      "colIndex": 6
+    },
+    {
+      "word": "MODE",
+      "vertical": false,
+      "rowIndex": 0,
+      "colIndex": 1
+    },
+    {
+      "word": "MOD",
       "vertical": true,
       "rowIndex": 2,
-      "colIndex": 2
-    },
-    {
-      "word": "LIVE",
-      "vertical": false,
-      "rowIndex": 8,
-      "colIndex": 5
-    },
-    {
-      "word": "ALL",
-      "vertical": false,
-      "rowIndex": 6,
-      "colIndex": 5
-    },
-    {
-      "word": "LIABLE",
-      "vertical": false,
-      "rowIndex": 9,
-      "colIndex": 0
-    },
-    {
-      "word": "VIA",
-      "vertical": false,
-      "rowIndex": 1,
       "colIndex": 3
     },
     {
-      "word": "VILLA",
+      "word": "DEMO",
       "vertical": false,
-      "rowIndex": 2,
-      "colIndex": 5
-    },
-    {
-      "word": "ABLE",
-      "vertical": false,
-      "rowIndex": 2,
+      "rowIndex": 3,
       "colIndex": 0
     },
     {
-      "word": "LAB",
+      "word": "MOLD",
       "vertical": false,
-      "rowIndex": 7,
+      "rowIndex": 2,
       "colIndex": 3
     },
     {
-      "word": "ALIVE",
-      "vertical": true,
-      "rowIndex": 2,
-      "colIndex": 0
-    },
-    {
-      "word": "BILL",
+      "word": "DOME",
       "vertical": false,
       "rowIndex": 4,
-      "colIndex": 4
-    },
-    {
-      "word": "AVE",
-      "vertical": true,
-      "rowIndex": 0,
       "colIndex": 3
-    },
-    {
-      "word": "BALL",
-      "vertical": true,
-      "rowIndex": 0,
-      "colIndex": 8
     }
   ],
-  "id": "48eafa343082cfc796e488cd2d0205eb"
+  "id": "3a1a069d35aa89b75cae91a500641b1c"
 }
