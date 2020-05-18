@@ -89,28 +89,20 @@ struct LevelView: View {
 
 struct ContentView: View {
     @State private var showingSheet = true
-    @State private var activeSheet: ActiveSheet = .first
-    
-    enum ActiveSheet { case first, second }
+    @State private var showingAlert = false
     
     var body: some View {
-        LevelView(for: "CrosswordSample", completion: $showingSheet)
+        LevelView(for: "CrosswordSample", completion: $showingAlert)
             .sheet(isPresented: $showingSheet, content: sheetContent)
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Congratulations! 🎉"),
+                      message: Text("You've successfully completed the level"),
+                      dismissButton: .default(Text("Got it!")
+                    ))}
     }
     
-    func sheetContent() -> AnyView {
-        if self.activeSheet == .first {
-            return AnyView(WelcomeView {
-                self.showingSheet = false
-                self.activeSheet = .second
-            })
-        } else if self.activeSheet == .second {
-            return AnyView(
-                CongratulationsView()
-            )
-        }
-        
-        return AnyView(EmptyView())
+    func sheetContent() -> some View {
+        WelcomeView { self.showingSheet = false }
     }
 }
 
